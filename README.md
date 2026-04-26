@@ -5,18 +5,17 @@ Ten projekt przedstawia konfigurację backendu opartego na **Django + Django RES
 # 📁 Project structure
 
 ```text
-myproject/
-│
-├── backend/
+
+├── mysite/
 │   ├── manage.py
-│   ├── myproject/
+│   ├── mysite/
 │   │   ├── __init__.py
 │   │   ├── settings.py
 │   │   ├── urls.py
 │   │   ├── asgi.py
 │   │   └── wsgi.py
 │   │
-│   ├── api/
+│   ├── polls/
 │   │   ├── __init__.py
 │   │   ├── models.py
 │   │   ├── views.py
@@ -25,10 +24,9 @@ myproject/
 │   │   └── apps.py
 │   │
 │   ├── requirements.txt
-│   └── Dockerfile
-│
-├── docker-compose.yml
-├── .env
+|   ├── docker-compose.yml
+|    ├── .env
+│   └── Dockerfile    
 └── README.md
 ```
 
