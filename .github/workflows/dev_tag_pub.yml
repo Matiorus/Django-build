@@ -1,11 +1,8 @@
-name: Docker Publish
+name: Docker Release
 
 on:
-  push:
-    branches:
-      - dev
-    tags:
-      - 'v*'
+  release:
+    types: [published]
 
 jobs:
   docker:
@@ -21,21 +18,17 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Set Docker tag
+      - name: Get release tag
         id: vars
         run: |
-          if [[ "${GITHUB_REF}" == refs/tags/* ]]; then
-            echo "TAG=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
-          else
-            echo "TAG=dev" >> $GITHUB_OUTPUT
-          fi
+          echo "TAG=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
 
-      - name: Build image
+      - name: Build Docker image
         run: |
           docker build \
             -t szatan1v11/django-build:${{ steps.vars.outputs.TAG }} \
             ./mysite
 
-      - name: Push image
+      - name: Push Docker image
         run: |
           docker push szatan1v11/django-build:${{ steps.vars.outputs.TAG }}
