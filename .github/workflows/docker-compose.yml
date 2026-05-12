@@ -22,6 +22,12 @@ jobs:
       - name: Build containers
         run: ls -la
 
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
 
       - name: Build containers
         run: docker compose -f ./mysite/docker-compose.yml build
