@@ -33,9 +33,9 @@ jobs:
       - name: Build image
         run: |
           docker build \
-            -t matiorus/django-build:${{ steps.vars.outputs.TAG }} \
+            -t szatan1v11/django-build:${{ steps.vars.outputs.TAG }} \
             ./mysite
 
       - name: Push image
         run: |
-          docker push matiorus/django-build:${{ steps.vars.outputs.TAG }}
+          docker push szatan1v11/django-build:${{ steps.vars.outputs.TAG }}
