@@ -22,10 +22,10 @@ jobs:
       
 
       - name: Build containers
-        run: docker compose build
+        run: docker compose build ./
 
       - name: Start containers
-        run: docker compose up -d
+        run: docker compose up -d ./
 
       - name: Wait for services
         run: sleep 15
