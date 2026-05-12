@@ -32,7 +32,7 @@ jobs:
 
 
       - name: Build containers
-        run: docker compose -f ./mysite/docker-compose.yml build -t matiorus/django-build:latest
+        run: docker compose -f ./mysite/docker-compose.yml build
 
       - name: Push image
         run: docker push matiorus/django-build:latest
