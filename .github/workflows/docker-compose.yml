@@ -35,7 +35,7 @@ jobs:
         run: docker compose -f ./mysite/docker-compose.yml build
 
       - name: Push image
-        run: docker push matiorus/django-build:latest
+        run: docker push szatan1v11/django-build:latest
 
       - name: Start containers
         run: docker compose -f ./mysite/docker-compose.yml up -d
