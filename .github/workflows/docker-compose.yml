@@ -19,7 +19,9 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      
+      - name: Build containers
+        run: ls -la
+
 
       - name: Build containers
         run: docker compose -f ../../docker-compose.yml build
