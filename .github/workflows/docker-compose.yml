@@ -35,8 +35,11 @@ jobs:
       - name: Show running containers
         run: docker ps
 
+      - name: Django make migrations
+        run: docker compose -f ./mysite/docker-compose.yml exec -T web python manage.py makemigrations
+
       - name: Django migrations
-        run: docker compose -T web python manage.py migrate
+        run: docker compose -f ./mysite/docker-compose.yml exec -T web python manage.py migrate
 
       - name: Run tests
         run: docker compose exec -T web python manage.py test
