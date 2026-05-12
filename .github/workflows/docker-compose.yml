@@ -27,7 +27,7 @@ jobs:
         run: docker compose -f ./mysite/docker-compose.yml build
 
       - name: Start containers
-        run: docker compose up -f ./mysite/docker-compose.yml -d 
+        run: docker compose -f ./mysite/docker-compose.yml up -d
 
       - name: Wait for services
         run: sleep 15
@@ -36,7 +36,7 @@ jobs:
         run: docker ps
 
       - name: Django migrations
-        run: docker compose exec -T web python manage.py migrate
+        run: docker compose -T web python manage.py migrate
 
       - name: Run tests
         run: docker compose exec -T web python manage.py test
