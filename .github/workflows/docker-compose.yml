@@ -41,6 +41,9 @@ jobs:
       - name: Django migrations
         run: docker compose -f ./mysite/docker-compose.yml exec -T web python manage.py migrate
 
+      - name: Test app
+        run: curl http://localhost:8000
+
       - name: Stop containers
         if: always()
         run: docker compose -f ./mysite/docker-compose.yml down
